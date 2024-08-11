@@ -1,0 +1,124 @@
+body {
+    background-color: rgb(12, 12, 19);
+}
+
+.banner {
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.banner .product {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    bottom: 170px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    transition: 2.3s;
+    --left: 0px;
+    display: flex;
+}
+
+.banner .product .soda {
+    background:
+        var(--url) var(--left) 0,
+        url(img/mockup.png);
+    background-size: auto 100%;
+    width: 280px;
+    aspect-ratio: 2 / 4;
+    background-blend-mode: multiply;
+    mask-image: url(img/mockup.png);
+    mask-size: auto 100%;
+    transition: 0.7s;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.banner .product:hover {
+    --left: -580px;
+    transform: translateX(-50%) translateY(-180px);
+}
+
+.banner .rock {
+    position: absolute;
+    inset: 0 0 0 0;
+    pointer-events: none;
+}
+
+.banner .rock img {
+    position: absolute;
+    transition: 0.7s;
+}
+
+.banner .rock img:nth-child(1) {
+    height: 170px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -30px;
+}
+
+.banner:has(.product:hover) .rock img:nth-child(1) {
+    transform: translateX(-50%) translateY(50px);
+}
+
+.banner .rock img:nth-child(2) {
+    height: 50%;
+    left: 0;
+    bottom: 0px;
+
+}
+
+.banner:has(.product:hover) .rock img:nth-child(2) {
+    transform: translateX(10%) translateY(-10px);
+
+}
+
+.banner .rock img:nth-child(3) {
+    height: 100%;
+    right: 0;
+    bottom: -100px;
+    rotate: -25deg;
+}
+
+.banner:has(.product:hover) .rock img:nth-child(3) {
+    transform: translateX(-10%) translateY(-20px);
+
+}
+
+.banner .product:hover .soda:nth-child(2) {
+    opacity: 0;
+}
+
+.button-wrapper {
+    position: absolute;
+    bottom: 20px; 
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1; 
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #121213;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    position: absolute;
+    bottom: 140px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+    pointer-events: auto;
+}
+
+.banner .product:hover ~ .button {
+    pointer-events: auto; 
+}    
